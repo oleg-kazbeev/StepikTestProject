@@ -21,7 +21,7 @@ class ProductPage(BasePage):
             "Message about adding is not presented")
         product_name = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
         message_about_adding = self.browser.find_element(*ProductPageLocators.MESSAGE_ABOUT_ADDING).text
-        assert product_name in message_about_adding, "Product name is not presented in message about adding"
+        assert product_name == message_about_adding, "Product name is not presented in message about adding"
 
     def should_be_message_about_basket_total(self):
         assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE), (
@@ -30,4 +30,4 @@ class ProductPage(BasePage):
             "Basket total message is not presented")
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
         basket_total_message = self.browser.find_element(*ProductPageLocators.MESSAGE_BASKET_TOTAL).text
-        assert product_price in basket_total_message, "Basket total message is not equal product price"
+        assert product_price == basket_total_message, "Basket total message is not equal product price"
